@@ -1,6 +1,6 @@
 [odd]
-centos1 ansible_port=2222 ansible_become=True ansible_become_password=password
-centos3 ansible_become=True ansible_become_password=password
+centos1 ansible_port=2222 ansible_user=root #ansible_become=True ansible_become_password=password
+centos3 ansible_user=root #ansible_become=True ansible_become_password=password
 ubuntu1 ansible_user=root
 ubuntu3 ansible_user=root
 
