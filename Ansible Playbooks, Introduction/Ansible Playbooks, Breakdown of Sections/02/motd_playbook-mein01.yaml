@@ -13,7 +13,7 @@
   # Tasks: the list of tasks that will be executed within the play, this section
   #       can also be used for pre and post tasks
   tasks:
-    - name: Configure a motd
+    - name: Configure a MOTD (message of the day)
       copy:
         src: centos_motd
         dest: /etc/motd
