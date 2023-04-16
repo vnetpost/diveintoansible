@@ -54,3 +54,4 @@
         msg: "{{hostvars[ansible_hostname].ansible_local.getdate2.date.date }}"
 
 # Three dots indicate the end of a YAML document
+...
