@@ -1,0 +1,30 @@
+---
+-
+ hosts: linux
+
+ tasks:
+
+   - name: Make facts dir
+     file:
+       path: /etc/ansible/facts.d/
+       recurse: yes
+       state: directory
+
+   - name: Copy Fact 1 & 2
+     copy:
+       src: /etc/ansible/facts.d/getdate*
+       dest: /etc/ansible/facts.d/
+       mode: 0755
+ 
+   - name: Refreshing Facts
+     setup:
+
+   - name: Show IP Address (default fact)
+     debug:
+       msg: "{{ ansible_default_ipv4.address }}"
+
+   - name: Show custom Fact 1
+     debug:
+       msg: "{{ ansible_local.getdate1.date }}"
+...
+

@@ -1,0 +1,4 @@
+#!/bin/bash
+echo [date]
+echo date = `date`
+echo date = $(date)
