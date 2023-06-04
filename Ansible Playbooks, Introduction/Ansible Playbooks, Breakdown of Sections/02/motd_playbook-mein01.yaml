@@ -5,7 +5,7 @@
   gather_facts: False
 
   vars:
-    motd: "Welcome to CentOS Linux - Ansible Rocks\n"
+    motd: "Welcome to CentOS Linux - Ansible Rocks!\n"
 
   tasks:
     - name: Configure a MOTD
