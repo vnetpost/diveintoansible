@@ -12,4 +12,10 @@
       copy:
         content: "{{ motd }}"
         dest: /etc/motd
+      notify: MOTD changed
+
+  handlers:
+    - name: MOTD changed
+      debug:
+        msg: The MOTD was changed!
 ...
