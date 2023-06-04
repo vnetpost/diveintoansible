@@ -2,10 +2,14 @@
 -
   hosts: centos
   user: root
+  gather_facts: False
+
+  vars:
+    motd: "Welcome to CentOS Linux - Ansible Rocks\n"
 
   tasks:
     - name: Configure a MOTD
       copy:
-        src: centos_motd
+        content: "{{ motd }}"
         dest: /etc/motd
 ...
