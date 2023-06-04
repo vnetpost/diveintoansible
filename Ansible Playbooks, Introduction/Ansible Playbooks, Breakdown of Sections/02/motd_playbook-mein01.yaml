@@ -1,10 +1,11 @@
 ---
-hosts: centos
-user: root
+-
+  hosts: centos
+  user: root
 
-tasks:
-  - name: Configure a MOTD
-    copy:
-      src: centos_motd
-      dest: /etc/motd
+  tasks:
+    - name: Configure a MOTD
+      copy:
+        src: centos_motd
+        dest: /etc/motd
 ...
