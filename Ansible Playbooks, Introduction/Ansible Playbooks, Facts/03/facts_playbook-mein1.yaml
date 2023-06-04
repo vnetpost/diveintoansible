@@ -1,0 +1,18 @@
+---
+-
+ hosts: all
+
+ tasks:
+   - name: Show IP (dafault fact)
+     debug:
+       msg: "{{ ansible_default_ipv4.address }}"
+
+   - name: Show Custom Fact 1
+     debug:
+       msg: "{{ ansible_local.getdate1 }}"
+
+   - name: Show Custom Fact 2
+     debug:
+       msg: "{{ ansible_local.getdate2 }}"
+
+...

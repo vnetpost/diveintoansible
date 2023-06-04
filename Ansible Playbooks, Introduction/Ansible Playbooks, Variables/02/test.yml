@@ -1,0 +1,56 @@
+---
+- name: Dictionaries
+  hosts: localhost
+  gather_facts: no
+  vars:
+    bands:
+      - name: The Beatles
+        drums: Ringo Star
+        bass: Paul McCartney
+        guitar:
+          - George Harrison
+          - John Lennon
+        vocals:
+          - John Lennon
+          - Paul McCartney
+          - George Harrison
+          - Ringo Star
+      - name: The Police
+        drums: Stewart Copeland
+        bass: Sting
+        guitar: Andy Summers
+        vocals: Sting
+      - name: Rush
+        drums: Neil Peart
+        bass: Geddy Lee
+        guitar: Alex Lifeson
+        vocals: Geddy Lee
+      - name: Led Zeppelin
+        drums: John Bonham
+        bass: John Paul Jones
+        guitar: Jimmy Page
+        vocals: Robert Plant
+  tasks:
+
+    - name: T01 - List bands
+      ansible.builtin.debug:
+        msg: "{{ bands }}"
+
+    - name: T02 - Select element based on band name
+      ansible.builtin.debug:
+        msg: "{{ bands | selectattr('name','equalto','The Beatles') }}"
+
+    - name: T03 - Show data types
+      ansible.builtin.debug:
+        msg:
+          - "bands............. is of type {{ bands | type_debug }}"
+          - ""
+          - "bands[0].......... is of type {{ bands[0] | type_debug }}"
+          - "  name ====> {{ bands[0]['name'] }}"
+          - ""
+          - "bands[0]['guitar'] is of type {{ bands[0]['guitar'] | type_debug }}"
+          - "  guitar ==> {{ bands[0]['guitar'] }}"
+          - ""
+          - "bands[1]['guitar'] is of type {{ bands[1]['guitar'] | type_debug }}"
+          - "  guitar ==> {{ bands[1]['guitar'] }}"
+...

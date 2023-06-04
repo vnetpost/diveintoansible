@@ -1,0 +1,34 @@
+---
+#######################################################
+-
+#######################################################
+  hosts: centos1
+  gather_facts: False
+
+  vars:
+    dict:
+      dict_A_1: dict_A_1 Value
+        - dict_B_1: dict_B_1 Value
+      
+      dict_A_2: dict_A_2 Value
+        #dict_B_2: dict_B_2 Value
+
+#######################################################
+  tasks:
+    #- name: Show vars
+    #  debug:
+    #    msg: "{{ vars }}"
+
+    - name: Show dict
+      debug:
+        msg: "{{ dict }}"
+
+    - name: Show dict_A_1
+      debug:
+        msg: "{{ dict.dict_A_1 }}"
+
+          #- name: Show dict_B_2
+          #debug:
+          #msg: "{{ dict.dict_A_2.dict_B_2 }}"
+#########################################################
+...
