@@ -1,0 +1,14 @@
+---
+-
+  hosts: linux
+  gather_facts: True
+
+  tasks:
+    - name: Test hostvars with an ansible fact& collect ansible_port
+      debug:
+        msg: "{{ ansible_port }}"
+
+    - name: Test groupvars
+      debug:
+        msg: "{{ ansible_user }}"
+...
