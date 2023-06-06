@@ -6,7 +6,7 @@
   tasks:
     - name: Test hostvars with an ansible fact & collect ansible_port
       debug:
-        msg: "{{ ansible_port }}"
+        msg: "{{ ansible_port | default('Default 22') }}"
 
     - name: Test groupvars
       debug:
