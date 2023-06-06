@@ -10,5 +10,5 @@
 
     - name: Test groupvars
       debug:
-        msg: "{{ ansible_user }}"
+        msg: "{{ ansible_user | default('X') }}"
 ...
