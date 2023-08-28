@@ -1,0 +1,15 @@
+---
+-
+  hosts: all
+
+  tasks:
+    - name: Ansible Jinja2 for statement
+      debug:
+        msg: >
+          
+            --== Ansible Jinja2 for statement ==--
+          
+            {% for entry in ansible_interfaces %}
+               Interface entry {{ loop.index }} = {{ entry }}
+            {% endfor %}
+...

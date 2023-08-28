@@ -1,0 +1,20 @@
+---
+
+-
+  hosts: all
+
+  tasks:
+    - name: Ansible Jinja2 for range, reversed (Continue if odd)
+      debug:
+        msg: >
+          --== Ansible Jinja2 for range, reversed ==--
+
+          {% for entry in range(10,1,-1) %}
+            {% if entry is odd %}
+                {% continue %} 
+            {% endif %}
+
+            {{ entry }}
+          {% endfor %}
+
+...

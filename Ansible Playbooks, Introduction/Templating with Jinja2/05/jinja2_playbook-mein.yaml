@@ -1,0 +1,20 @@
+---
+
+- 
+  hosts: all
+
+  tasks:
+    - name: Ansible Jinja2 if variable is defined (Where variable is not defined)
+      debug:
+        msg: >
+          --== Ansible Jinja2 if variable is defined ==--
+
+          {% set example_variable = 'Defined!' %}
+          {% if example_variable is defined %}
+              example_variable is defined!
+          {% else %}
+              example_variable is not defined!
+          {% endif %}
+
+...
+

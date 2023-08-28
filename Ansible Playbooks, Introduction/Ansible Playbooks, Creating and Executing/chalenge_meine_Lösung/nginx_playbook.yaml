@@ -1,0 +1,61 @@
+---
+
+-
+  hosts: linux
+  
+  vars_files:
+    - vars/logos.yaml
+
+  tasks:
+    - name: Install EPEL on CentOS-VMs
+      dnf:
+        name:
+          - epel-release 
+        state: latest
+        update_cache: true
+      when: ansible_distribution == 'CentOS'
+      notify: Epel installed!
+
+    - name: Install NginX on CentOS & Ubuntu
+      package:
+        name:
+          - nginx
+          - unzip
+        state: latest
+        update_cache: true
+      notify: NginX installed!
+
+    - name: Restart NginX
+      service:
+        name: nginx
+        state: restarted
+        enabled: true  
+      notify: Service HTTP accessable!
+
+    - name: Template index.html-easter_egg.j2 to index.html on target
+      template:
+        src: index.html-easter_egg.j2
+        dest: "{{ nginx_root_location }}/index.html"
+        mode: 0644
+
+    - name: Unarchive Playbook stacker game
+      unarchive:
+        src : playbook_stacker.zip
+        dest: "{{ nginx_root_location }}"
+        mode: 0755
+
+  handlers:
+    - name: Epel installed!
+      debug:
+        msg: Epel is on {{ ansible_hostname }} installed!
+
+    - name: NginX installed!
+      debug:
+        msg: NginX is on {{ ansible_hostname }} installed! 
+    
+    - name: Service HTTP accessable! 
+      uri:
+        url: http://{{ ansible_default_ipv4.address }}
+        status_code: 200
+      
+...

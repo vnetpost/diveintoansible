@@ -1,0 +1,13 @@
+[control]
+ubuntu-c
+
+[linux:children]
+centos
+ubuntu
+
+[centos]
+centos[1:3]
+
+[ubuntu]
+ubuntu[1:3]
+

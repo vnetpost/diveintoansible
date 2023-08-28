@@ -9,10 +9,10 @@
 
    - name: Show Custom Fact 1
      debug:
-       msg: "{{ ansible_local.getdate1 }}"
+       msg: "{{ ansible_local.getdate1.date }}"
 
    - name: Show Custom Fact 2
      debug:
-       msg: "{{ ansible_local.getdate2 }}"
+       msg: "{{ ansible_local.getdate2.date.date }}"
 
 ...
