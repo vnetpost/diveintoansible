@@ -12,7 +12,7 @@
         myfact01: Ansible Rocks!
         myfact02: 41
 
-    - name: Show custom fact
+    - name: Show custom fact !
       debug:
         msg: "Custom fact: {{ myfact01 }}"
         msg: "Custom fact: {{ myfact02 }}"
