@@ -14,7 +14,7 @@
 
     - name: Show custom fact !
       debug:
-        msg: "Custom fact: {{ myfact01 }}"
-        msg: "Custom fact: {{ myfact02 }}"
-
+        msg: >
+          "Custom fact 1: {{ myfact01 }}"
+          " \n Custom fact 2: {{ myfact02 }}"  
 ...
