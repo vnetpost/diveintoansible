@@ -1,0 +1,18 @@
+---
+
+  - 
+    hosts: ubuntu3,centos3
+
+    tasks:
+      - name: Set a fact
+        set_fact:
+          our_fact: Ansible Rocks!
+          ansible_distribution: "{{ ansible_distribution | upper }}"
+
+      - name: Show our_fact
+        debug:
+          msg: "{{ our_fact }}"
+      - name: Show ansible_distribution
+        debug:
+          msg: "{{ ansible_distribution }}"
+...
