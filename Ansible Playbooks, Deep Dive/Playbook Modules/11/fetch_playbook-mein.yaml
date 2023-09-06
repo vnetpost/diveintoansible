@@ -1,0 +1,17 @@
+---
+- 
+  hosts: all
+
+  tasks:
+    - name: Fetch /etc/redhat-release
+      fetch:
+        src: /etc/redhat-release
+        dest: /tmp/redhat-release_{{ ansible_distribution }}
+      when: ansible_distribution == 'CentOS'
+
+    - name: Fetch /etc/os-release
+      ansible.builtin.fetch:
+        src: /etc/os-release
+        dest: /tmp/os-release_{{ ansible_distribution }}
+      when: ansible_distribution == 'Ubuntu'
+...

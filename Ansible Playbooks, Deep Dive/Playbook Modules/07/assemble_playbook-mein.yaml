@@ -1,0 +1,13 @@
+---
+
+- 
+  hosts: ubuntu-c
+
+  tasks:
+
+    - name: Assemble conf.d to sshd_config
+      ansible.builtin.assemble:
+        src: conf.d
+        dest: sshd_config
+
+...

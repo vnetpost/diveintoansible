@@ -1,0 +1,18 @@
+---
+
+- 
+  hosts: all
+
+  tasks:
+    - name: Create group based on ansible_distribution
+      ansible.builtin.group_by:
+        key: "custom_{{ ansible_distribution | lower }}"
+
+- 
+  hosts: custom_centos
+
+  tasks:
+    - name: Ping all in custom_centos
+      ansible.builtin.ping:
+        
+...
